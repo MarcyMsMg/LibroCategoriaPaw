@@ -4,7 +4,7 @@ import java.util.List;
 
 import cl.paw.paw.model.Libro;
 
-public interface ILibroService {
+public interface ILibroService { //Define el conjunto de operaciones que serán implementadas
 
         Libro insLibroDTO(Libro libro);
 

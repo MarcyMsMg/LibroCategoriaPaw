@@ -36,7 +36,7 @@ public class Categoria {
     private String nom_categoria;
 
 
-    @ManyToMany(mappedBy="categorias")
+    @ManyToMany(mappedBy="categorias") //Relación inversa
     @JsonBackReference
     private List<Libro> libros = new ArrayList<>();
 }

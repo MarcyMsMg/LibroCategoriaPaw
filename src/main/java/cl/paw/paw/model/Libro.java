@@ -26,16 +26,16 @@ import lombok.Setter;
 @Setter
 public class Libro {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "libro_seq")
-    @SequenceGenerator(name = "libro_seq", sequenceName = "libro_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "libro_seq") //Genero el id con secuencia
+    @SequenceGenerator(name = "libro_seq", sequenceName = "libro_seq", allocationSize = 1) //nombre de la secuencia
     private int id_libro;
-    @Column(nullable=false)
+    @Column(nullable=false) //No pueden ser nulas
     private String nom_libro;
     @Column(nullable=false)
     private String desc_libro;
 
-    @ManyToMany
-    @JoinTable(
+    @ManyToMany //Muchos a muchos
+    @JoinTable( //Owner de la relación
                 name = "libro_categoria",
                 joinColumns = @JoinColumn(name = "id_libro"),
                 inverseJoinColumns = @JoinColumn(name = "id_categoria"))

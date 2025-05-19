@@ -36,12 +36,11 @@ public class LibroController {
                 .body("Libro agregado con éxito: " + nuevoLibro.getId_libro());
     }
 
-
-      @PutMapping("/{id_libro}")
-        public ResponseEntity<?> actLibroDTO(@PathVariable int id_libro, @RequestBody Libro libro) {
-            if (!libroService.existePorId(id_libro)) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                        .body("No existe un libro con ID: " + id_libro);
+    //Modificar Libro
+    @PutMapping("/{id_libro}")
+    public ResponseEntity<?> actLibroDTO(@PathVariable int id_libro, @RequestBody Libro libro) {
+        if (!libroService.existePorId(id_libro)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No existe un libro con ID: " + id_libro);
             }
 
             libro.setId_libro(id_libro);
@@ -49,7 +48,7 @@ public class LibroController {
             return ResponseEntity.ok(actualizado);
         }
 
-
+        //Delete Libro
         @DeleteMapping("/{id_libro}")
         public ResponseEntity<?> deleteLibroDTO(@PathVariable int id_libro) {
             if (!libroService.existePorId(id_libro)) {
